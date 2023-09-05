@@ -1,0 +1,8 @@
+﻿Сборка начата…
+1>------ Сборка начата: проект: HW_w1d1, Конфигурация: Debug x64 ------
+1>HW_w1d1.cpp
+1>C:\Users\pronc\source\repos\OOL_cource\HW_w1d1\HW_w1d1\HW_w1d1.cpp(24,17): warning C4244: аргумент: преобразование "fpos_t" в "long", возможна потеря данных
+1>C:\Users\pronc\source\repos\OOL_cource\HW_w1d1\HW_w1d1\HW_w1d1.cpp(12,18): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>C:\Users\pronc\source\repos\OOL_cource\HW_w1d1\HW_w1d1\HW_w1d1.cpp(25,5): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>Сборка проекта "HW_w1d1.vcxproj" завершена с ошибкой.
+========== Сборка: успешно: 0, сбой: 1, в актуальном состоянии: 0, пропущено: 0==========

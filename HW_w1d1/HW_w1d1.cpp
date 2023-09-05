@@ -8,7 +8,28 @@ struct Worker {
     double Payment;
 };
 
-void Start() {
+void AddWorker() {
+    FILE* file = fopen("Data.txt", "rb+");
+    Worker newW;
+    cout << "Введите фамилию:" << endl;
+    cin >> newW.SecName;
+    cout << "Введите имя:" << endl;
+    cin >> newW.Name;
+    cout << "Введите номер телефона:" << endl;
+    cin >> newW.Number;
+    cout << "Введите зарплату:" << endl;
+    cin >> newW.Payment;
+    char p[10];
+    fpos_t pos = fgetpos(file, &pos);
+    fseek(file, pos, SEEK_END);
+    sprintf(p, "%f", newW.Payment);
+    fputs(newW.Name, file);
+    fputs(newW.SecName, file);
+    fputs(newW.Number, file);
+    fputs(p, file);
+    fclose(file);
+}
+void Start(Worker* work) {
     int Menu = 0;
     cout << "Workers DataBase\nMenu:\n" << endl;
     switch (Menu) {
@@ -43,7 +64,7 @@ void Start() {
 }
 int main()
 {
-    Worker workers = new Worker[25];
-
-    delete[] workers;
+    Worker* worker = new Worker;
+    AddWorker();
+    delete[] worker;
 }
