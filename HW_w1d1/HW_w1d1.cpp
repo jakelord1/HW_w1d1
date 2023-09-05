@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include "HW_w1d1.h"
 using namespace std;
 
 struct Worker {
@@ -24,6 +25,32 @@ Worker AddWorker(Worker work) {
 }
 Worker* DeleteWorker(Worker* work, int choosed) {
     
+}
+void SearchSecName(Worker* work) {
+    char comp[5], search[5];
+    cin >> search;
+    for (size_t i = 0; i < 25; i++)
+    {
+        for (size_t j = 0; j < 5; j++)
+        {
+            comp[j] = work[i].SecName[j];
+        }
+        if (strcmp(comp, search) == 0) {
+            cout << "Second Name: " << work[i].SecName << " Name: " << work[i].Name;
+        }
+    }
+}
+void SearchSecName(Worker* work) {
+    double comp, search1, search2;
+    cin >> search1;
+    cin >> search2;
+    for (size_t i = 0; i < 25; i++)
+    {
+        comp = work[i].Payment;   
+        if (comp > search1 && comp < search2) {
+            cout << "Second Name: " << work[i].SecName << " Name: " << work[i].Name << " Payment: " << work[i].Payment;
+        }
+    }
 }
 void Start(Worker* work) {
     int Menu = 0;
