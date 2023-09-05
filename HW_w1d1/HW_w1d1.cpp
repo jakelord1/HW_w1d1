@@ -2,32 +2,28 @@
 using namespace std;
 
 struct Worker {
-    char* SecName;
-    char* Name;
-    char* Number;
+    char SecName[15];
+    char Name[10];
+    char Number[10];
     double Payment;
 };
 
-void AddWorker() {
-    FILE* file = fopen("Data.txt", "rb+");
-    Worker newW;
+Worker AddWorker(Worker work) {
+    char sd[2] = " ";
+    char* s = sd;
+    Worker newW = { 0,0,0,0 };
     cout << "Введите фамилию:" << endl;
-    cin >> newW.SecName;
+    cin.getline(newW.SecName, 15);
     cout << "Введите имя:" << endl;
-    cin >> newW.Name;
+    cin.getline(newW.Name, 10);
     cout << "Введите номер телефона:" << endl;
-    cin >> newW.Number;
+    cin.getline(newW.Number, 10);
     cout << "Введите зарплату:" << endl;
     cin >> newW.Payment;
-    char p[10];
-    fpos_t pos = fgetpos(file, &pos);
-    fseek(file, pos, SEEK_END);
-    sprintf(p, "%f", newW.Payment);
-    fputs(newW.Name, file);
-    fputs(newW.SecName, file);
-    fputs(newW.Number, file);
-    fputs(p, file);
-    fclose(file);
+    return newW;
+}
+Worker* DeleteWorker(Worker* work, int choosed) {
+    
 }
 void Start(Worker* work) {
     int Menu = 0;
@@ -64,7 +60,7 @@ void Start(Worker* work) {
 }
 int main()
 {
-    Worker* worker = new Worker;
-    AddWorker();
-    delete[] worker;
+    Worker* worker = new Worker[25];
+    AddWorker(worker[0]);
+    delete worker;
 }
