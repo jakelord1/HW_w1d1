@@ -1,6 +1,15 @@
 ﻿#include <iostream>
+using namespace std;
+struct Worker {
+    char* Name;
+    char* SecName;
+    char* Number;
+    double Payment;
+};
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Worker* workers = new Worker[25];
+
 }
