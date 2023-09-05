@@ -23,6 +23,9 @@ Worker AddWorker(Worker work) {
     cin >> newW.Payment;
     return newW;
 }
+void WorkerShower(Worker work) {
+    cout << work.SecName << "\t" << work.Name << "\t" << work.Number << "\t" << work.Payment << "$";
+}
 Worker* DeleteWorker(Worker* work, int choosed) {
     
 }
@@ -48,9 +51,28 @@ void SearchSecName(Worker* work) {
     {
         comp = work[i].Payment;   
         if (comp > search1 && comp < search2) {
-            cout << "Second Name: " << work[i].SecName << " Name: " << work[i].Name << " Payment: " << work[i].Payment;
+            WorkerShower(work[i]);
         }
     }
+}
+void quickSortP(Worker* work, int N) {
+    long i = 0, j = N - 1;
+    Worker temp, p;
+    p = work[N >> 1];
+    do {
+        while (work[i].SecName[0] < p.SecName[0]) i++;
+        while (work[j].SecName[0] > p.SecName[0]) j--;
+
+        if (i <= j) {
+            temp = work[i]; work[i] = work[j]; work[i] = temp;
+            i++; j--;
+        }
+    } while (i <= j);
+
+    if (j > 0) quickSortP(work, j);
+    if (N > i) quickSortP(work + i, N - i);
+
+
 }
 void Start(Worker* work) {
     int Menu = 0;
