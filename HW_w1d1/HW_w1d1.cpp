@@ -74,6 +74,12 @@ void quickSortP(Worker* work, int N) {
 
 
 }
+void WorkerLib(Worker* work) {
+    for (size_t i = 0; i < 25; i++)
+    {
+        WorkerShower(work[i]);
+    }
+}
 void Start(Worker* work) {
     int Menu = 0;
     cout << "Workers DataBase\nMenu:\n" << endl;
