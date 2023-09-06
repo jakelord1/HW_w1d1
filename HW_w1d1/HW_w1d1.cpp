@@ -125,6 +125,7 @@ void WorkerLib(Worker* work) {
 void Start(Worker* work) {
     int Menu = 0;
     cout << "Workers DataBase\nMenu:\n" << endl;
+    cout << "1 - Select worker\t2 - Add Worker\t3 - Delete selected worker\t4 - Show all workers\t5 - Search workers by sec. name\t6 - Search workers by payment\t7 - Sort worker list\t0 - Exit" << endl;
     switch (Menu) {
     case 1: {
         cin >> pos;
@@ -167,10 +168,14 @@ void Start(Worker* work) {
     default: {
         break;
     }
+           
     }
+    system("cls");
 }
 int main()
 {
     Worker* worker = new Worker[25];
-    delete worker;
+    while (1) {
+        Start(worker);
+    }
 }
