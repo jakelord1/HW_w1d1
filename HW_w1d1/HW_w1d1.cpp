@@ -5,7 +5,7 @@ using namespace std;
 struct Worker {
     char SecName[15];
     char Name[10];
-    char Number[10];
+    char Number[12];
     double Payment;
 };
 
@@ -19,6 +19,23 @@ Worker AddWorker(Worker work) {
     cin.getline(newW.Name, 10);
     cout << "Введите номер телефона:" << endl;
     cin.getline(newW.Number, 10);
+    for (size_t i = 0; i < 12; i++)
+    {
+        if (i == 0) {
+            for (size_t j = 11; j > i; j--)
+            {
+                newW.Number[j] = newW.Number[j - 1];
+            }
+            newW.Number[i] = '(';
+        }
+        else if (i == 4) {
+            for (size_t j = 11; j > i; j--)
+            {
+                newW.Number[j] = newW.Number[j - 1];
+            }
+            newW.Number[i] = ')';
+        }
+    }
     cout << "Введите зарплату:" << endl;
     cin >> newW.Payment;
     return newW;
