@@ -9,6 +9,14 @@ struct Worker {
     double Payment;
 };
 
+Worker AddWorker(Worker work);
+void WorkerShower(Worker work);
+Worker* DeleteWorker(Worker* work, int choosed);
+void SearchSecName(Worker* work);
+void quickSortP(Worker* work, int N);
+void WorkerLib(Worker* work);
+void Start(Worker* work);
+
 Worker AddWorker(Worker work) {
     char sd[2] = " ";
     char* s = sd;
@@ -44,7 +52,24 @@ void WorkerShower(Worker work) {
     cout << work.SecName << "\t" << work.Name << "\t" << work.Number << "\t" << work.Payment << "$";
 }
 Worker* DeleteWorker(Worker* work, int choosed) {
-    
+    int c = 0;
+    cout << "Подтвердите удаление работника\n1 - Подтверждаю\t0 - Отмена";
+    cin >> c;
+    switch (c) {
+    case 1: {
+        for (size_t i = 0; i < 25; i++)
+        {
+            if (i >= choosed) {
+                work[i] = work[i + 1];
+            }
+        }
+        break;
+    }
+    default: {
+        break;
+    }
+    }
+    return work;
 }
 void SearchSecName(Worker* work) {
     char comp[5], search[5];
@@ -102,10 +127,16 @@ void Start(Worker* work) {
     cout << "Workers DataBase\nMenu:\n" << endl;
     switch (Menu) {
     case 1: {
-
+        
     }
     case 2: {
-
+        for (size_t i = 0; i < 25; i++)
+        {
+            if (work[i].Name == 0) {
+                AddWorker(work[i]);
+            }
+        }
+        system("cls");
     }
     case 3: {
 
@@ -126,13 +157,13 @@ void Start(Worker* work) {
 
     }
     case 0: {
-
+        delete work;
+        exit(0);
     }
     }
 }
 int main()
 {
     Worker* worker = new Worker[25];
-    AddWorker(worker[0]);
     delete worker;
 }
