@@ -13,10 +13,12 @@ Worker AddWorker(Worker work);
 void WorkerShower(Worker work);
 Worker* DeleteWorker(Worker* work, int choosed);
 void SearchSecName(Worker* work);
+void SearchPayment(Worker* work);
 void quickSortP(Worker* work, int N);
 void WorkerLib(Worker* work);
 void Start(Worker* work);
 
+int pos = 0;
 Worker AddWorker(Worker work) {
     char sd[2] = " ";
     char* s = sd;
@@ -85,7 +87,7 @@ void SearchSecName(Worker* work) {
         }
     }
 }
-void SearchSecName(Worker* work) {
+void SearchPayment(Worker* work) {
     double comp, search1, search2;
     cin >> search1;
     cin >> search2;
@@ -113,8 +115,6 @@ void quickSortP(Worker* work, int N) {
 
     if (j > 0) quickSortP(work, j);
     if (N > i) quickSortP(work + i, N - i);
-
-
 }
 void WorkerLib(Worker* work) {
     for (size_t i = 0; i < 25; i++)
@@ -127,7 +127,8 @@ void Start(Worker* work) {
     cout << "Workers DataBase\nMenu:\n" << endl;
     switch (Menu) {
     case 1: {
-        
+        cin >> pos;
+        break;
     }
     case 2: {
         for (size_t i = 0; i < 25; i++)
@@ -137,28 +138,34 @@ void Start(Worker* work) {
             }
         }
         system("cls");
+        break;
     }
     case 3: {
-
+        DeleteWorker(work, pos);
+        break;
     }
     case 4: {
-
+        WorkerLib(work);
+        break;
     }
     case 5: {
-
+        SearchSecName(work);
+        break;
     }
     case 6: {
-
+        SearchPayment(work);
+        break;
     }
     case 7: {
-
-    }
-    case 8: {
-
+        quickSortP(work, 25);
+        break;
     }
     case 0: {
         delete work;
         exit(0);
+    }
+    default: {
+        break;
     }
     }
 }
